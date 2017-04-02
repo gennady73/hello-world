@@ -11,3 +11,4 @@ initial project
 * new item 5
 * new item 6
 * new item 7
+* new item 8
