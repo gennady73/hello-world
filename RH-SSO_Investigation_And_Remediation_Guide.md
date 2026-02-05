@@ -107,29 +107,29 @@ flowchart TD
       
     %% Symptoms  
     subgraph Symptoms  
-        S1[Latency Spikes 30s+]  
-        S2[Threads BLOCKED on LDAP Pool]  
-        S3[Defective Token Error]  
+        S1["Latency Spikes 30s+"]  
+        S2["Threads BLOCKED on LDAP Pool"]  
+        S3["Defective Token Error"]  
     end  
       
     %% Primary Analysis Path (Performance)  
-    subgraph RootCause_Performance [Primary Cause: LDAP Connection Pool]  
-        P1[Evidence: 37 New SSL Handshakes]  
-        P2[Evidence: Threads blocked on Connections.get]  
-        P3[Conclusion: Stale Connections / FW Drop]  
+    subgraph RootCause_Performance ["Primary Cause: LDAP Connection Pool"]  
+        P1["Evidence: 37 New SSL Handshakes"]  
+        P2["Evidence: Threads blocked on Connections.get"]  
+        P3["Conclusion: Stale Connections / FW Drop"]  
     end
 
     %% Secondary Analysis Path (Auth Error)  
-    subgraph RootCause_Auth [Secondary Cause: Kerberos Config]  
-        K1[Evidence: GSSException Defective Token]  
-        K2[Conclusion: NTLM Fallback or Bad SPN]  
+    subgraph RootCause_Auth ["Secondary Cause: Kerberos Config"]  
+        K1["Evidence: GSSException Defective Token"]  
+        K2["Conclusion: NTLM Fallback or Bad SPN"]  
     end
 
     %% Actions  
-    subgraph Remediation [Apply Fixes]  
-        Fix1[<b>Action 1:</b><br/>Set Pool Timeout to 300000ms (5min)]  
-        Fix2[<b>Action 2:</b><br/>Increase Preferred Size to 50]  
-        Fix3[<b>Action 3:</b><br/>Enable 'Validate Connection']  
+    subgraph Remediation ["Apply Fixes"]  
+        Fix1["<b>Action 1:</b><br/>Set Pool Timeout to 300000ms (5min)"]  
+        Fix2["<b>Action 2:</b><br/>Increase Preferred Size to 50"]  
+        Fix3["<b>Action 3:</b><br/>Enable 'Validate Connection'"]  
     end
 
     %% Connections  
@@ -144,5 +144,5 @@ flowchart TD
     style Start fill:#f9f,stroke:#333,stroke-width:2px  
     style RootCause_Performance fill:#ffe6cc,stroke:#d79b00,stroke-width:2px  
     style RootCause_Auth fill:#e1d5e7,stroke:#9673a6,stroke-width:2px  
-    style Remediation fill:#d5e8d4,stroke:#82b366,stroke-width:2px  
+    style Remediation fill:#d5e8d4,stroke:#82b366,stroke-width:2px 
 ```
