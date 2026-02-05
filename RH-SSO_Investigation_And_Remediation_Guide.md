@@ -100,7 +100,7 @@ If the latency resolves but Defective Token errors persist, execute this workflo
    \# High count of SYN\_SENT or CLOSE\_WAIT indicates network/application mismatch.
 
 ## **6\. Visual Investigation Map**
-
+```mermaid
 flowchart TD  
     %% Nodes and Styles  
     Start(\[Start Investigation\])  
@@ -145,3 +145,4 @@ flowchart TD
     style RootCause\_Performance fill:\#ffe6cc,stroke:\#d79b00,stroke-width:2px  
     style RootCause\_Auth fill:\#e1d5e7,stroke:\#9673a6,stroke-width:2px  
     style Remediation fill:\#d5e8d4,stroke:\#82b366,stroke-width:2px  
+```
